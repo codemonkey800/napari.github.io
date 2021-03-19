@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <meta name="generator" content="sphinx-3.5.2, furo 2021.02.28.beta28"/>
-        <title>Overview: module code - napari</title>
+        <title>(WIP) napari theme - napari</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=be5985a4059b5c2cd56ed0804790452beca62674">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -97,7 +97,7 @@
       <a href="../index.html"><div class="brand">napari</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -285,50 +285,42 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <h1>All modules for which code is available</h1>
-<ul><li><a href="PyQt5/QtCore.html">PyQt5.QtCore</a></li>
-<li><a href="_warnings.html">_warnings</a></li>
-<li><a href="builtins.html">builtins</a></li>
-<li><a href="functools.html">functools</a></li>
-<li><a href="inspect.html">inspect</a></li>
-<li><a href="magicgui/_magicgui.html">magicgui._magicgui</a></li>
-<li><a href="napari/_qt/qt_event_loop.html">napari._qt.qt_event_loop</a></li>
-<li><a href="napari/_qt/qthreading.html">napari._qt.qthreading</a></li>
-<li><a href="napari/components/camera.html">napari.components.camera</a></li>
-<li><a href="napari/components/dims.html">napari.components.dims</a></li>
-<li><a href="napari/components/layerlist.html">napari.components.layerlist</a></li>
-<li><a href="napari/components/viewer_model.html">napari.components.viewer_model</a></li>
-<li><a href="napari/layers/base/base.html">napari.layers.base.base</a></li>
-<li><a href="napari/layers/image/image.html">napari.layers.image.image</a></li>
-<li><a href="napari/layers/labels/labels.html">napari.layers.labels.labels</a></li>
-<li><a href="napari/layers/points/points.html">napari.layers.points.points</a></li>
-<li><a href="napari/layers/shapes/shapes.html">napari.layers.shapes.shapes</a></li>
-<li><a href="napari/layers/surface/surface.html">napari.layers.surface.surface</a></li>
-<li><a href="napari/layers/tracks/tracks.html">napari.layers.tracks.tracks</a></li>
-<li><a href="napari/layers/vectors/vectors.html">napari.layers.vectors.vectors</a></li>
-<li><a href="napari/plugins.html">napari.plugins</a></li>
-<ul><li><a href="napari/plugins/hook_specifications.html">napari.plugins.hook_specifications</a></li>
-<li><a href="napari/plugins/io.html">napari.plugins.io</a></li>
-</ul><li><a href="napari/types.html">napari.types</a></li>
-<li><a href="napari/utils/_appdirs.html">napari.utils._appdirs</a></li>
-<li><a href="napari/utils/colormaps/colormap.html">napari.utils.colormaps.colormap</a></li>
-<li><a href="napari/utils/dask_utils.html">napari.utils.dask_utils</a></li>
-<li><a href="napari/utils/info.html">napari.utils.info</a></li>
-<li><a href="napari/utils/misc.html">napari.utils.misc</a></li>
-<li><a href="napari/utils/perf/_event.html">napari.utils.perf._event</a></li>
-<li><a href="napari/utils/perf/_timers.html">napari.utils.perf._timers</a></li>
-<li><a href="napari/view_layers.html">napari.view_layers</a></li>
-<li><a href="napari/viewer.html">napari.viewer</a></li>
-<li><a href="napari_plugin_engine/implementation.html">napari_plugin_engine.implementation</a></li>
-<li><a href="napari_plugin_engine/manager.html">napari_plugin_engine.manager</a></li>
-<li><a href="numpydoc/docscrape.html">numpydoc.docscrape</a></li>
-<li><a href="pydantic/main.html">pydantic.main</a></li>
-<li><a href="time.html">time</a></li>
-<li><a href="typing.html">typing</a></li>
-</ul>
+        <div class="section" id="wip-napari-theme">
+<h1>(WIP) napari theme<a class="headerlink" href="#wip-napari-theme" title="Permalink to this headline">¶</a></h1>
+<p>Source for napari’s custom theme. Scripts use vanilla JavaScript and styles
+use <a class="reference external" href="https://sass-lang.com/">SCSS</a>. The files are preprocessed by
+<a class="reference external" href="https://gulpjs.com/">Gulp</a> and stored in <code class="docutils literal notranslate"><span class="pre">napari/static</span></code>.</p>
+<p>The base theme inherits <a class="reference external" href="https://github.com/sphinx-doc/sphinx/tree/master/sphinx/themes/basic">Sphinx’s basic theme</a>.
+Check out the the basic theme source to get a better understanding of how
+pages are generated.</p>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>The build infrastructure was heavily inspired by the awesome
+<a class="reference external" href="https://github.com/pradyunsg/furo">Furo</a> theme.</p>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./theme"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
       </article>
       <footer>
         
@@ -344,12 +336,36 @@
               and
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/theme/README.md"
+               rel="nofollow">
+              Show Source
+            </a>
         </div>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">(WIP) napari theme</a><ul>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
