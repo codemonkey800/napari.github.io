@@ -1,197 +1,24 @@
 <!doctype html>
 <html class="no-js">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="napari.view_layers" href="napari.view_layers.html" /><link rel="prev" title="napari.layers.Tracks" href="napari.layers.Tracks.html" />
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-    <meta name="generator" content="sphinx-3.5.2, furo 2021.02.28.beta28"/>
+    <!-- Site title-->
         <title>napari.layers.Vectors - napari</title>
-      <link rel="stylesheet" href="../../_static/styles/furo.css?digest=be5985a4059b5c2cd56ed0804790452beca62674">
+      <link rel="stylesheet" href="../../_static/dist/main.css">
     <link rel="stylesheet" href="../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
-    
-
-
-<style>
-  :root {
-    --color-code-background: #002b36;
-  --color-code-foreground: #839496;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-
-  /* For allowing end-user-specific overrides */
-  .override-light {
-    --color-code-background: #002b36;
-  --color-code-foreground: #839496;
-  
-  }
-  .override-dark {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-</style><link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b">
-    <script async defer data-domain="napari.org" src="https://plausible.io/js/plausible.js"></script>
-    
-</head>
+  </head>
   <body dir="">
-    
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z"/>
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="feather feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="feather feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-</svg>
-
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation"></label>
-<label class="overlay toc-overlay" for="__toc"></label>
-
-
-
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="../../index.html"><div class="brand">napari</div></a>
-    </div>
-    <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="../../_static/logo.ico" alt="Logo"/>
-  </div>
-  
-  <span class="sidebar-brand-text">napari</span>
-  
-</a><form class="sidebar-search-container" method="get" action="../../search.html">
-  <input class="sidebar-search" placeholder=Search name="q">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../community/index.html">Community</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../community/mission_and_values.html">Mission and Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../community/code_of_conduct.html">Code of Conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../community/code_of_conduct_reporting.html">Handling Code of Conduct Reports</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../community/governance.html">Governance Model</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/fundamentals/index.html">Fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/installation.html">napari installation tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/getting_started.html">getting started with napari</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/viewer.html">napari viewer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/image.html">image layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/labels.html">labels layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/points.html">points layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/shapes.html">shapes layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/surface.html">surface layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/tracks.html">tracks layer tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fundamentals/vectors.html">vectors layer tutorial</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/applications/index.html">Applications</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/applications/annotate_segmentation.html">annotating segmentation with text and bounding boxes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/applications/annotate_points.html">annotating videos with napari</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/applications/dask.html">using dask and napari to process &amp; view large datasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/applications/napari_imageJ.html">Napari + ImageJ How-to-Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/applications/cell_tracking.html">single cell tracking with napari</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../plugins/stable/index.html">Plugins</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins/stable/for_napari_developers.html">napari plugin architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins/stable/for_plugin_developers.html">creating a napari plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins/stable/hook_specifications.html">napari hook specification reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../release/index.html">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_6.html">napari 0.4.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_5.html">napari 0.4.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_4.html">napari 0.4.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_3.html">napari 0.4.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_2.html">napari 0.4.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_1.html">napari 0.4.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_4_0.html">napari 0.4.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_8.html">napari 0.3.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_7.html">napari 0.3.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_6.html">napari 0.3.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_5.html">napari 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_4.html">napari 0.3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_3.html">napari 0.3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_2.html">napari 0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_1.html">napari 0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_3_0.html">napari 0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_9.html">napari 0.2.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_8.html">napari 0.2.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_7.html">napari 0.2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_6.html">napari 0.2.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_5.html">napari 0.2.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_4.html">napari 0.2.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_3.html">napari 0.2.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_12.html">napari 0.2.12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_11.html">napari 0.2.11</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_10.html">napari 0.2.10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_1.html">napari 0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_2_0.html">napari 0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_1_5.html">napari 0.1.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_1_3.html">napari 0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../release/release_0_1_0.html">napari 0.1.0</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">API reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="napari.layers.html">napari.layers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+    <div class="page">
+  <section><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/stable/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="napari.layers.html">napari.layers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Image.html">napari.layers.Image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Labels.html">napari.layers.Labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Layer.html">napari.layers.Layer</a></li>
@@ -199,96 +26,29 @@
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Shapes.html">napari.layers.Shapes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Surface.html">napari.layers.Surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="napari.layers.Tracks.html">napari.layers.Tracks</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">napari.layers.Vectors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">napari.layers.Vectors</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.view_layers.html">napari.view_layers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.view_layers.NumpyDocString.html">napari.view_layers.NumpyDocString</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.view_layers.Viewer.html">napari.view_layers.Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.view_layers.html">napari.view_layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.types.html">napari.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.utils.html">napari.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.plugins.html">napari.plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.components.html">napari.components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.qt.threading.html">napari.qt.threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.utils.perf.html">napari.utils.perf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari.html">napari</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.types.html">napari.types</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.types.ArrayBase.html">napari.types.ArrayBase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.types.TracebackType.html">napari.types.TracebackType</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.utils.html">napari.utils</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.utils.Colormap.html">napari.utils.Colormap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.utils.nbscreenshot.html">napari.utils.nbscreenshot</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.plugins.html">napari.plugins</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.plugins.FunctionType.html">napari.plugins.FunctionType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.plugins.HookImplementation.html">napari.plugins.HookImplementation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.plugins.PluginManager.html">napari.plugins.PluginManager</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.components.html">napari.components</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.components.Camera.html">napari.components.Camera</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.components.Dims.html">napari.components.Dims</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.components.LayerList.html">napari.components.LayerList</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.components.ViewerModel.html">napari.components.ViewerModel</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.qt.threading.html">napari.qt.threading</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.qt.threading.FunctionWorker.html">napari.qt.threading.FunctionWorker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.qt.threading.GeneratorWorker.html">napari.qt.threading.GeneratorWorker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.qt.threading.GeneratorWorkerSignals.html">napari.qt.threading.GeneratorWorkerSignals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.qt.threading.WorkerBase.html">napari.qt.threading.WorkerBase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="napari.qt.threading.WorkerBaseSignals.html">napari.qt.threading.WorkerBaseSignals</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.utils.perf.html">napari.utils.perf</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.utils.perf.PerfEvent.html">napari.utils.perf.PerfEvent</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="napari.html">napari</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label for="toctree-checkbox-16"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="napari.Viewer.html">napari.Viewer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../roadmaps/index.html">Roadmaps</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label for="toctree-checkbox-17"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../roadmaps/0_4.html">Roadmap 0.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../roadmaps/0_3_retrospective.html">Roadmap 0.3 Retrospective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../roadmaps/0_3.html">Roadmap 0.3</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../guides/stable/index.html">Developer guides</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label for="toctree-checkbox-18"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/event_loop.html">An Introduction to the Event Loop in napari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/threading.html">Multithreading in napari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/perfmon.html">Performance Monitoring</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/rendering.html">Asynchronous Rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/docker.html">Napari in Docker (WIP)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/performance.html">Napari Performance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../guides/stable/magicgui.html">Using <code class="docutils literal notranslate"><span class="pre">magicgui</span></code> in napari</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../developers/index.html">Developer resources</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label for="toctree-checkbox-19"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/benchmarks.html">Benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/contributing.html">Contributing Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/core_dev_guide.html">Core Developer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/profiling.html">Profiling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/release.html">Release Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../developers/testing.html">Testing</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmaps/index.html">Roadmaps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/stable/index.html">Developer guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/index.html">Developer resources</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/napari/napari">napari source code</a></li>
 </ul>
+</section>
 
-</div>
-</div>
-      </div>
-      
-    </div>
-  </aside>
-  <main class="main">
-    <div class="content">
-      <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
-          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-        </label>
-        <div class="section" id="napari-layers-vectors">
+  <main class="content">
+    <h1>Hello, World!</h1>
+    <div class="section" id="napari-layers-vectors">
 <h1>napari.layers.Vectors<a class="headerlink" href="#napari-layers-vectors" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="napari.layers.Vectors">
@@ -349,6 +109,7 @@ alpha values of the layer visual get mixed. Allowed values are
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.properties">
 <code class="sig-name descname"><span class="pre">properties</span></code><a class="headerlink" href="#napari.layers.Vectors.properties" title="Permalink to this definition">¶</a></dt>
@@ -360,6 +121,7 @@ where N is the number of vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.edge_width">
 <code class="sig-name descname"><span class="pre">edge_width</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_width" title="Permalink to this definition">¶</a></dt>
@@ -370,6 +132,7 @@ where N is the number of vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.length">
 <code class="sig-name descname"><span class="pre">length</span></code><a class="headerlink" href="#napari.layers.Vectors.length" title="Permalink to this definition">¶</a></dt>
@@ -380,6 +143,7 @@ where N is the number of vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.edge_color">
 <code class="sig-name descname"><span class="pre">edge_color</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_color" title="Permalink to this definition">¶</a></dt>
@@ -390,6 +154,7 @@ where N is the number of vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.edge_color_cycle">
 <code class="sig-name descname"><span class="pre">edge_color_cycle</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_color_cycle" title="Permalink to this definition">¶</a></dt>
@@ -401,6 +166,7 @@ categorical attribute is used color the vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.edge_colormap">
 <code class="sig-name descname"><span class="pre">edge_colormap</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_colormap" title="Permalink to this definition">¶</a></dt>
@@ -411,6 +177,7 @@ categorical attribute is used color the vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors.edge_contrast_limits">
 <code class="sig-name descname"><span class="pre">edge_contrast_limits</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_contrast_limits" title="Permalink to this definition">¶</a></dt>
@@ -424,14 +191,17 @@ The default value is None. If set the none, the clims will be set to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt>
 <code class="sig-name descname"><span class="pre">Extended</span> <span class="pre">Summary</span></code></dt>
 <dd></dd></dl>
+
 <dl class="py attribute">
 <dt>
 <code class="sig-name descname"><span class="pre">----------</span></code></dt>
 <dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._view_data">
 <code class="sig-name descname"><span class="pre">_view_data</span></code><a class="headerlink" href="#napari.layers.Vectors._view_data" title="Permalink to this definition">¶</a></dt>
@@ -443,6 +213,7 @@ start point is in the currently viewed slice.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._view_face_color">
 <code class="sig-name descname"><span class="pre">_view_face_color</span></code><a class="headerlink" href="#napari.layers.Vectors._view_face_color" title="Permalink to this definition">¶</a></dt>
@@ -453,6 +224,7 @@ start point is in the currently viewed slice.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._view_indices">
 <code class="sig-name descname"><span class="pre">_view_indices</span></code><a class="headerlink" href="#napari.layers.Vectors._view_indices" title="Permalink to this definition">¶</a></dt>
@@ -463,6 +235,7 @@ start point is in the currently viewed slice.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._view_vertices">
 <code class="sig-name descname"><span class="pre">_view_vertices</span></code><a class="headerlink" href="#napari.layers.Vectors._view_vertices" title="Permalink to this definition">¶</a></dt>
@@ -473,6 +246,7 @@ start point is in the currently viewed slice.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._view_faces">
 <code class="sig-name descname"><span class="pre">_view_faces</span></code><a class="headerlink" href="#napari.layers.Vectors._view_faces" title="Permalink to this definition">¶</a></dt>
@@ -484,6 +258,7 @@ Shape is (2M, 2) for 2D and (4M, 2) for 3D.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._property_choices">
 <code class="sig-name descname"><span class="pre">_property_choices</span></code><a class="headerlink" href="#napari.layers.Vectors._property_choices" title="Permalink to this definition">¶</a></dt>
@@ -495,6 +270,7 @@ If properties is not provided, it will be {} (empty dictionary).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._mesh_vertices">
 <code class="sig-name descname"><span class="pre">_mesh_vertices</span></code><a class="headerlink" href="#napari.layers.Vectors._mesh_vertices" title="Permalink to this definition">¶</a></dt>
@@ -506,6 +282,7 @@ rectangle in the slice that it starts in.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._mesh_triangles">
 <code class="sig-name descname"><span class="pre">_mesh_triangles</span></code><a class="headerlink" href="#napari.layers.Vectors._mesh_triangles" title="Permalink to this definition">¶</a></dt>
@@ -517,6 +294,7 @@ for the mesh representation of the vectors.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt id="napari.layers.Vectors._max_vectors_thumbnail">
 <code class="sig-name descname"><span class="pre">_max_vectors_thumbnail</span></code><a class="headerlink" href="#napari.layers.Vectors._max_vectors_thumbnail" title="Permalink to this definition">¶</a></dt>
@@ -529,6 +307,7 @@ subsampled.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <p class="rubric">Methods</p>
 <p class="rubric">Attributes</p>
 <dl class="py method">
@@ -541,6 +320,7 @@ subsampled.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.bind_key">
 <code class="sig-name descname"><span class="pre">bind_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em>, <em class="sig-param"><span class="pre">func=&lt;object</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">overwrite=False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.bind_key" title="Permalink to this definition">¶</a></dt>
@@ -584,19 +364,20 @@ was bound to.</p>
 <p>By default, all functions are assumed to work on key presses only,
 but can be denoted to work on release too by separating the function
 into two statements with the yield keyword:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@viewer</span><span class="o">.</span><span class="n">bind_key</span><span class="p">(</span><span class="s1">'h'</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@viewer</span><span class="o">.</span><span class="n">bind_key</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">viewer</span><span class="p">):</span>
     <span class="c1"># on key press</span>
-    <span class="n">viewer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'hello world!'</span>
+    <span class="n">viewer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;hello world!&#39;</span>
 
     <span class="k">yield</span>
 
     <span class="c1"># on key release</span>
-    <span class="n">viewer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'goodbye world :('</span>
+    <span class="n">viewer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;goodbye world :(&#39;</span>
 </pre></div>
 </div>
 <p>To create a keymap that will block others, <code class="docutils literal notranslate"><span class="pre">bind_key(...,</span> <span class="pre">...)`</span></code>.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.blending">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">blending</span></code><a class="headerlink" href="#napari.layers.Vectors.blending" title="Permalink to this definition">¶</a></dt>
@@ -621,11 +402,13 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.coordinates">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">coordinates</span></code><a class="headerlink" href="#napari.layers.Vectors.coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cursor position in data coordinates.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.cursor">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cursor</span></code><a class="headerlink" href="#napari.layers.Vectors.cursor" title="Permalink to this definition">¶</a></dt>
@@ -636,6 +419,7 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.cursor_size">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cursor_size</span></code><a class="headerlink" href="#napari.layers.Vectors.cursor_size" title="Permalink to this definition">¶</a></dt>
@@ -646,6 +430,7 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id0">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">data</span></code><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
@@ -659,6 +444,7 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.displayed_coordinates">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">displayed_coordinates</span></code><a class="headerlink" href="#napari.layers.Vectors.displayed_coordinates" title="Permalink to this definition">¶</a></dt>
@@ -669,6 +455,7 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id1">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_color</span></code><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
@@ -682,6 +469,7 @@ blend_func=(‘src_alpha’, ‘one’).</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id2">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_color_cycle</span></code><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
@@ -696,6 +484,7 @@ Can be a list of colors defined by name, RGB or RGBA</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.edge_color_mode">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_color_mode</span></code><a class="headerlink" href="#napari.layers.Vectors.edge_color_mode" title="Permalink to this definition">¶</a></dt>
@@ -712,6 +501,7 @@ Can be a list of colors defined by name, RGB or RGBA</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id3">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_colormap</span></code><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
@@ -725,6 +515,7 @@ Can be a list of colors defined by name, RGB or RGBA</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id4">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_contrast_limits</span></code><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
@@ -739,6 +530,7 @@ the edge_color colormap property to 0 and 1</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id5">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edge_width</span></code><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
@@ -752,6 +544,7 @@ the edge_color colormap property to 0 and 1</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.editable">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">editable</span></code><a class="headerlink" href="#napari.layers.Vectors.editable" title="Permalink to this definition">¶</a></dt>
@@ -762,6 +555,7 @@ the edge_color colormap property to 0 and 1</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.extent">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">extent</span></code><a class="headerlink" href="#napari.layers.Vectors.extent" title="Permalink to this definition">¶</a></dt>
@@ -772,6 +566,7 @@ the edge_color colormap property to 0 and 1</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.get_message">
 <code class="sig-name descname"><span class="pre">get_message</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.get_message" title="Permalink to this definition">¶</a></dt>
@@ -785,6 +580,7 @@ the edge_color colormap property to 0 and 1</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.get_status">
 <code class="sig-name descname"><span class="pre">get_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.get_status" title="Permalink to this definition">¶</a></dt>
@@ -805,6 +601,7 @@ and converted into data coordinates. False by default.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.get_value">
 <code class="sig-name descname"><span class="pre">get_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.get_value" title="Permalink to this definition">¶</a></dt>
@@ -825,6 +622,7 @@ and converted into data coordinates. False by default.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.help">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">help</span></code><a class="headerlink" href="#napari.layers.Vectors.help" title="Permalink to this definition">¶</a></dt>
@@ -835,6 +633,7 @@ and converted into data coordinates. False by default.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.interactive">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">interactive</span></code><a class="headerlink" href="#napari.layers.Vectors.interactive" title="Permalink to this definition">¶</a></dt>
@@ -845,6 +644,7 @@ and converted into data coordinates. False by default.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id6">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">length</span></code><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
@@ -858,6 +658,7 @@ and converted into data coordinates. False by default.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.loaded">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">loaded</span></code><a class="headerlink" href="#napari.layers.Vectors.loaded" title="Permalink to this definition">¶</a></dt>
@@ -870,6 +671,7 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.name">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#napari.layers.Vectors.name" title="Permalink to this definition">¶</a></dt>
@@ -880,6 +682,7 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.ndim">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ndim</span></code><a class="headerlink" href="#napari.layers.Vectors.ndim" title="Permalink to this definition">¶</a></dt>
@@ -890,6 +693,7 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.opacity">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">opacity</span></code><a class="headerlink" href="#napari.layers.Vectors.opacity" title="Permalink to this definition">¶</a></dt>
@@ -900,6 +704,7 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.position">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">position</span></code><a class="headerlink" href="#napari.layers.Vectors.position" title="Permalink to this definition">¶</a></dt>
@@ -910,6 +715,7 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="id7">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">properties</span></code><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
@@ -926,11 +732,13 @@ Derived classes that do asynchronous loading can override this.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.refresh">
 <code class="sig-name descname"><span class="pre">refresh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.refresh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refresh all layer data based on current view slice.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.refresh_colors">
 <code class="sig-name descname"><span class="pre">refresh_colors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_color_mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/napari/layers/vectors/vectors.html#Vectors.refresh_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#napari.layers.Vectors.refresh_colors" title="Permalink to this definition">¶</a></dt>
@@ -947,6 +755,7 @@ Default value is False.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.rotate">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rotate</span></code><a class="headerlink" href="#napari.layers.Vectors.rotate" title="Permalink to this definition">¶</a></dt>
@@ -957,6 +766,7 @@ Default value is False.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.save">
 <code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#napari.layers.Vectors.save" title="Permalink to this definition">¶</a></dt>
@@ -980,6 +790,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.scale">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">scale</span></code><a class="headerlink" href="#napari.layers.Vectors.scale" title="Permalink to this definition">¶</a></dt>
@@ -990,6 +801,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.selected">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">selected</span></code><a class="headerlink" href="#napari.layers.Vectors.selected" title="Permalink to this definition">¶</a></dt>
@@ -1000,6 +812,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.shear">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">shear</span></code><a class="headerlink" href="#napari.layers.Vectors.shear" title="Permalink to this definition">¶</a></dt>
@@ -1010,6 +823,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.status">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">status</span></code><a class="headerlink" href="#napari.layers.Vectors.status" title="Permalink to this definition">¶</a></dt>
@@ -1020,6 +834,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.thumbnail">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">thumbnail</span></code><a class="headerlink" href="#napari.layers.Vectors.thumbnail" title="Permalink to this definition">¶</a></dt>
@@ -1030,6 +845,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.translate">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">translate</span></code><a class="headerlink" href="#napari.layers.Vectors.translate" title="Permalink to this definition">¶</a></dt>
@@ -1040,6 +856,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.translate_grid">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">translate_grid</span></code><a class="headerlink" href="#napari.layers.Vectors.translate_grid" title="Permalink to this definition">¶</a></dt>
@@ -1050,6 +867,7 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt id="napari.layers.Vectors.visible">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">visible</span></code><a class="headerlink" href="#napari.layers.Vectors.visible" title="Permalink to this definition">¶</a></dt>
@@ -1060,9 +878,12 @@ through to find the first one that can save the data.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 </div>
-<script type="text/x-thebe-config">
+
+    <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -1080,71 +901,28 @@ through to find the first one that can save the data.</p></li>
         predefinedOutput: true
     }
     </script>
-<script>kernelName = 'python3'</script>
-      </article>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="napari.view_layers.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">napari.view_layers</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="napari.layers.Tracks.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">napari.layers.Tracks</div>
-                
-              </div>
-            </a>
-        </div>
-
-        <div class="related-information">
-              Copyright &#169; 2020
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="../../_sources/api/stable/napari.layers.Vectors.rst"
-               rel="nofollow">
-              Show Source
-            </a>
-        </div>
-        
-      </footer>
-    </div>
-    <aside class="toc-drawer no-toc">
-      
-      
-      
-    </aside>
+    <script>kernelName = 'python3'</script>
   </main>
+
+  <section><ul>
+<li><a class="reference internal" href="#">napari.layers.Vectors</a></li>
+</ul>
+</section>
 </div>
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+
+    <!-- This is *exactly* how `basic` handles this file. -->
+    <script
+      id="documentation_options"
+      data-url_root="../../"
+      src="../../_static/documentation_options.js"
+    ></script>
+
+    <!--
+      Script that reloads the browser on websocket reload events. This script
+      is only available for use in the dev server.
+    -->
+    <script src="/reload/reload.js"></script>
+
+    <script src="../../_static/dist/main.js"></script>
+  </body>
 </html>
